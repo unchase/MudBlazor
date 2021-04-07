@@ -1,0 +1,16 @@
+﻿.mud-scheduler {
+    display: flex !important;
+    position: relative;
+    margin: 0px !important;
+    clip-path: inset(0px 0px 0px 0px);
+}
+
+.mud-scheduler-item {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: inherit;
+    padding: inherit;
+}
