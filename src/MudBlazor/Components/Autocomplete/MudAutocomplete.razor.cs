@@ -229,13 +229,13 @@ namespace MudBlazor
         {
             get => _isOpen;
             // Note: the setter is protected because it was needed by a user who derived his own autocomplete from this class.
-            // Note: setting IsOpen will not open or close it. Use ToggleMenu() for that. 
+            // Note: setting IsOpen will not open or close it. Use ToggleMenu() for that.
             protected set
             {
                 if (value == _isOpen)
                     return;
                 _isOpen = value;
-                
+
                 IsOpenChanged.InvokeAsync(_isOpen).AndForget();
             }
         }
@@ -263,6 +263,12 @@ namespace MudBlazor
         /// Button click event for clear button. Called after text and value has been cleared.
         /// </summary>
         [Parameter] public EventCallback<MouseEventArgs> OnClearButtonClick { get; set; }
+
+        /// <summary>
+        /// If true, the results are displayed in a Virtualize component, allowing a boost in rendering speed.
+        /// </summary>
+        [Category(CategoryTypes.FormComponent.Behavior)]
+        [Parameter] public bool Virtualize { get; set; }
 
         private string CurrentIcon => !string.IsNullOrWhiteSpace(AdornmentIcon) ? AdornmentIcon : _isOpen ? CloseIcon : OpenIcon;
 
